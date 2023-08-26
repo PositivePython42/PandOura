@@ -4,7 +4,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 #import plotly.graph_objects as go
-import plotly.express as px
+import plotly as px
 from datetime import date
 
 df = pd.read_csv('/home/seany42/Documents/PandOura/oura_master_data.csv')
