@@ -1,9 +1,9 @@
-# PandOura v 0.4, based on 30 Days of Panda Tutorial up to Day 4, but using my own data
+# PandOura v 0.4, based on 30 Days of Streamlit Tutorial but using my own data
 
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly.graph_objects as go
+#import plotly.graph_objects as go
 import plotly.express as px
 from datetime import date
 
