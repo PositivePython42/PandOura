@@ -4,15 +4,32 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 #import plotly.graph_objects as go
-#import plotly.express as px
+import plotly.express as px
 from datetime import date
 
-df = pd.read_csv('/home/seany42/Documents/PandOura/oura_master_data.csv')
-
 st.title('**PandOura** - Data From My Oura Ring')
+st.header('Upload your data here')
+st.subheader('Please use csv format')
+uploaded_file = st.file_uploader("Chose a file")
+
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+else:
+    st.info('Upload a file')
+
+st.write('What data would you like to see?')
+sleep = st.checkbox('Sleep Score')
+readiness = st.checkbox('Readiness Score')
+steps = st.checkbox('Steps')
+
+if sleep:
+    st.write(df['Sleep Score'].describe())
+if readiness:
+    st.write(df['Readiness Score'].describe())
+if steps:
+    st.write(df['Steps'].describe())
 
 add_sidebar = st.sidebar.selectbox('Chose Your Dataset', ('Chose', 'Sleep Score', 'Readiness Score', 'Steps'))
-
 
 if add_sidebar == 'Sleep Score':
     st.write(df['Sleep Score'].describe())
@@ -26,9 +43,10 @@ if add_sidebar == 'Steps':
     st.write(df['Steps'].describe())
     st.write('You are looking at a summary of ', add_sidebar)
 
-'''
+
 add_sidebar = st.sidebar.selectbox('Chose Your Plot', ('Chose', 'Sleep/Readiness', 'Steps/Sleep'))
 
+'''
 st.subheader("Date Range Slider")
 date_range = st.slider(
     'Select a date range',
