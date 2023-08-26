@@ -8,6 +8,12 @@ import plotly.express as px
 from datetime import date
 
 st.title('**PandOura** - Data From My Oura Ring')
+
+with st.expander('About this app'):
+    st.write('You can use this app to analyse the data from your Oura ring, uploading using the data uplader below.  This product is not authorised by Oura.')
+    st.write('If you want to to suggest feature email me at sean@positivepython.co.uk, or raise an issue on GitHub https://github.com/PositivePython42/PandOura/issues')
+
+
 st.header('Upload your data here')
 st.subheader('Please use csv format')
 uploaded_file = st.file_uploader("Chose a file")
@@ -46,13 +52,6 @@ if add_sidebar == 'Steps':
 
 add_sidebar = st.sidebar.selectbox('Chose Your Plot', ('Chose', 'Sleep/Readiness', 'Steps/Sleep'))
 
-'''
-st.subheader("Date Range Slider")
-date_range = st.slider(
-    'Select a date range',
-    value=(date(2020, 9, 1), date(2023, 8, 12)))
-st.write("Date Range:", date_range)
-'''
 
 if add_sidebar == 'Sleep/Readiness':
     fig = px.scatter(x=df['Sleep Score'], y=df['Readiness Score'])
