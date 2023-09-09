@@ -1,9 +1,8 @@
-# PandOura v 0.4, based on 30 Days of Streamlit Tutorial but using my own data
+# PandOura v 0.5, based on 30 Days of Streamlit Tutorial but using my own data
 
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly.graph_objects as go
 import plotly.express as px
 from datetime import date
 
@@ -11,7 +10,7 @@ st.title('**PandOura** - Data From My Oura Ring')
 
 with st.expander('About this app'):
     st.write('You can use this app to analyse the data from your Oura ring, uploading using the data uplader below.  This product is not authorised by Oura.')
-    st.write('If you want to to suggest feature email me at sean@positivepython.co.uk, or raise an issue on GitHub https://github.com/PositivePython42/PandOura/issues')
+    st.write('If you want to suggest a feature email me at sean@positivepython.co.uk, or raise an issue on GitHub https://github.com/PositivePython42/PandOura/issues')
 
 
 st.header('Upload your data here')
