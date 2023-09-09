@@ -6,6 +6,7 @@ import numpy as np
 import plotly.express as px
 from datetime import date
 
+st.set_page_config(layout="wide")
 st.title('**PandOura** - Data From My Oura Ring')
 
 with st.expander('About this app'):
@@ -61,6 +62,7 @@ if add_sidebar == 'Steps/Sleep':
     fig = px.scatter(x=df['Steps'], y=df['Sleep Score'])
     st.plotly_chart(fig)
     st.caption('This plot looks at how my sleep score is impacted by the previous days steps')
+    st.balloons()
     
 add_sidebar = st.sidebar.selectbox('Chose Your Linechart', ('Chose', 'Sleep Scores', 'Activity Scores'))
 
