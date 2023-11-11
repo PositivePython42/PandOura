@@ -2,8 +2,6 @@
 
 import streamlit as st
 import pandas as pd
-import numpy as np
-import plotly.express as px
 from datetime import date
 
 st.set_page_config(layout="wide")
@@ -48,32 +46,3 @@ if add_sidebar == 'Readiness Score':
 if add_sidebar == 'Steps':
     st.write(df['Steps'].describe())
     st.write('You are looking at a summary of ', add_sidebar)
-
-
-add_sidebar = st.sidebar.selectbox('Chose Your Plot', ('Chose', 'Sleep/Readiness', 'Steps/Sleep'))
-
-
-if add_sidebar == 'Sleep/Readiness':
-    fig = px.scatter(x=df['Sleep Score'], y=df['Readiness Score'])
-    st.plotly_chart(fig)
-    st.caption('This plot looks at how my sleep score is impacted by the previous days readiness')
-    
-if add_sidebar == 'Steps/Sleep':
-    fig = px.scatter(x=df['Steps'], y=df['Sleep Score'])
-    st.plotly_chart(fig)
-    st.caption('This plot looks at how my sleep score is impacted by the previous days steps')
-    st.balloons()
-    
-add_sidebar = st.sidebar.selectbox('Chose Your Linechart', ('Chose', 'Sleep Scores', 'Activity Scores'))
-
-if add_sidebar == 'Sleep Scores':
-    chart_data = pd.DataFrame(
-        df[['Sleep Score']],
-        )
-    st.line_chart(chart_data)
-
-if add_sidebar == 'Activity Scores':
-    chart_data = pd.DataFrame(
-        df[['Activity Score']],
-        )
-    st.line_chart(chart_data)
