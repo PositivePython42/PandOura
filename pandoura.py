@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 
 st.set_page_config(layout="wide")
-st.title('**PandOura** Open Your Oura 〇 Data')
+st.title('**PandOura** *Open Your Oura 〇 Data*')
 
 with st.expander('About this app'):
     st.write('You can use this app to analyse the data from your Oura ring, uploading using the data uplader below.  To download your Oura data;\n'
