@@ -2,7 +2,7 @@
 
 import pandas as pd
 import streamlit as st
-
+import datetime
 
 st.set_page_config(layout="wide")
 st.title('**PandOura** - Data From My Oura Ring')
@@ -24,11 +24,12 @@ uploaded_file = st.file_uploader("Chose a file")
 
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
+    # Turn the time/date based data into something Pandas can understand properly
+    df['date'] = pd.to_datetime(df['date'], dayfirst=True)
 else:
     st.info('Upload a file')
 
-#Turn the time/date based data into something Pandas can understand properly
-df['date'] = pd.to_datetime(df['date'], dayfirst=True)
+
 
 
 #Replace all the blank data items with a code Pandas uses to exclude the date, otherwise it skews the analysis#
