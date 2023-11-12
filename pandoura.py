@@ -2,7 +2,6 @@
 
 import pandas as pd
 import streamlit as st
-import datetime
 
 st.set_page_config(layout="wide")
 st.title('**PandOura** - Data From My Oura Ring')
@@ -14,25 +13,27 @@ with st.expander('About this app'):
              '3. In the top right hand side of the screen press the "Download Data" button\n'
              '4. Chose "Select All" from the drop down menu'
              )
-    st.write('Please suggest a feature.  Email me at sean@positivepython.co.uk, or raise an issue on GitHub https://github.com/PositivePython42/PandOura/issues')
+    st.write('Email me at sean@positivepython.co.uk with any feedback, or raise an issues on GitHub https://github.com/PositivePython42/PandOura/issues')
 
 #Upload and perform essential tidy up functions on the data
-#Upload the data
+
+#Upload the data and replaces blanks with NaN to remove them from skewing analysis
 st.header('Upload your data here')
 st.subheader('Please use csv format')
 uploaded_file = st.file_uploader("Chose a file")
-
 if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
+    df = pd.read_csv(uploaded_file, na_values='')
+
     # Turn the time/date based data into something Pandas can understand properly
     df['date'] = pd.to_datetime(df['date'], dayfirst=True)
+
 else:
-    st.info('Upload a file')
+    st.info('Upload your Oura Ring data, detailed instructions with screenshots at  TBC')
 
 
 
 
-#Replace all the blank data items with a code Pandas uses to exclude the date, otherwise it skews the analysis#
+
 
 
 
