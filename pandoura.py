@@ -34,7 +34,8 @@ def MakeDonut(donut_data):
     fig = plt.gcf()
     fig.gca().add_artist(centre_circle)
     ax.axis('equal')
-    plt.show()
+    #plt.show()
+    st.pyplot(fig)
 
 st.set_page_config(layout="wide")
 st.title('**PandOura** *Open Your Oura* 〇 *Data*')
