@@ -13,18 +13,18 @@ def MakeDonut(donut_data):
 
     for element in df[donut_data]:
         total_count += 1
-        if element => 0 and element < 70:
+        if element > 0 and element < 70:
             red += 1
-        elif element >= 70 and element < 85:
+        elif element > 69 and element < 86:
             amber += 1
-        elif element >= 85:
+        elif element > 85:
             green += 1
     red_percent = red / total_count * 100
     amber_percent = amber / total_count * 100
     green_percent = green / total_count * 100
 
     #Print the donut plot
-    donut_show = {'Score Range': ['0 - 59', '70 - 84', '85 - 100'],
+    donut_show = {'Score Range': ['0 - 69', '70 - 85', '86 - 100'],
                   'Days In Range': [red_percent, amber_percent, green_percent]}
     donut_df = pd.DataFrame(donut_show)
     fig, ax = plt.subplots()
