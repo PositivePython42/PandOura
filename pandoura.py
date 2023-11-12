@@ -1,11 +1,11 @@
 #PandOura v 0.6, first version to go on public view as MVP
 
-import pandas as pd
 import streamlit as st
+import pandas as pd
 import matplotlib.pyplot as plt
 
 def MakeDonut(donut_data):
-    #get the percentages, care to ignore the NaN entries
+    #get the percentages, ignore the NaN entries
     red = 0
     amber = 0
     green = 0
@@ -34,8 +34,7 @@ def MakeDonut(donut_data):
     fig = plt.gcf()
     fig.gca().add_artist(centre_circle)
     ax.axis('equal')
-    #plt.show()
-    st.pyplot(fig)
+    plt.show()
 
 st.set_page_config(layout="wide")
 st.title('**PandOura** *Open Your Oura* 〇 *Data*')
